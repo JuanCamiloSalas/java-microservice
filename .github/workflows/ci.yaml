@@ -1,0 +1,27 @@
+name: deploy microservice
+on:
+  push:
+
+permissions:
+  packages: write
+  contents: read
+
+jobs:
+  deploy:
+    name: create and deploy container
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4.1.7
+
+      - name: build container
+        run: |
+          docker build -t ghcr.io/JuanCamiloSalas/microservice/java:latest .
+      
+      - name: login to ghcr
+        run: |
+          echo $GITHUB_TOKEN | docker login ghcr.io -u USERNAME --password-stdin
+      
+      - name: push to registry
+        run: |
+          docker push ghcr.io/JuanCamiloSalas/microservice/java:latest
