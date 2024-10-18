@@ -20,7 +20,7 @@ jobs:
       
       - name: login to ghcr
         run: |
-          docker login ghcr.io -u USERNAME -p $GITHUB_TOKEN
+          docker login ghcr.io -u USERNAME -p ${{ secrets.GITHUB_TOKEN }}
 
       - name: push to registry
         run: |
