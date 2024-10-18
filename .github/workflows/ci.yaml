@@ -16,7 +16,7 @@ jobs:
 
       - name: build container
         run: |
-          docker build -t ghcr.io/JuanCamiloSalas/microservice/java:latest .
+          docker build -t ghcr.io/juancamilosalas/microservice/java:latest .
       
       - name: login to ghcr
         run: |
@@ -24,4 +24,4 @@ jobs:
       
       - name: push to registry
         run: |
-          docker push ghcr.io/JuanCamiloSalas/microservice/java:latest
+          docker push ghcr.io/juancamilosalas/microservice/java:latest
